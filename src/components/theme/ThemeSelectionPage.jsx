@@ -8,7 +8,7 @@ const ThemeSelectionPage = ({ setTheme }) => {
       { name: '', colorClass: 'bg-gradient-to-r from-indigo-400 via-cyan-500 to-teal-600 text-white' },
       { name: '', colorClass: 'bg-gradient-to-r from-green-400 via-teal-500 to-cyan-600 text-white' },
       { name: '', colorClass: 'bg-gradient-to-r from-purple-200 via-purple-300 to-purple-400 text-white' },
-      { name: '', colorClass: 'bg-gray-700 text-white' },
+    //   { name: '', colorClass: 'bg-gray-700 text-white' },
     ];
   
     const handleThemeChange = (theme) => {
