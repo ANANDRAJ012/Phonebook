@@ -81,7 +81,7 @@ const ContactCard = () => {
                 <h1 className="text-5xl text-center font-bold mb-2">Phonebook</h1>
                 <input
                     type="text"
-                    name="name"
+                    name="name"     
                     placeholder="Name"
                     value={newContact.name}
                     onChange={handleInputChange}
