@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import ThemeSelectionPage from '../theme/ThemeSelectionPage';
 
+// import DarkMode from '../DarkMode/DarkMode';
+
 
 
 const ContactCard = () => {
     const [contacts, setContacts] = useState([]);
     const [newContact, setNewContact] = useState({ name: '', phone: '' });
     const [editIndex, setEditIndex] = useState(-1); // Index of the contact being edited
-    const [theme, setTheme] = useState('bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500'); // Default theme
+    const [theme, setTheme] = useState(); // Default theme
 
 
     const handleInputChange = (e) => {
@@ -67,9 +69,14 @@ const ContactCard = () => {
     };
 
     return (
-        <div className={`min-h-screen ${theme} text-slate flex items-center justify-center`}>
+        <>
+        
+        <div className={`min-h-screen ${theme} text-slate flex flex-col items-center justify-center `}>
+        
              <ThemeSelectionPage setTheme={setTheme} /> {/* Pass setTheme prop */}
-            <div className="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-xl">
+             {/* <DarkMode/> */}
+             
+            <div className="max-w-xl mx-auto p-6 rounded-lg shadow-md">
             {/* <div className="max-w-xl mx-auto p-6  rounded-lg shadow-xl"> */}
                 <h1 className="text-5xl text-center font-bold mb-2">Phonebook</h1>
                 <input
@@ -79,7 +86,7 @@ const ContactCard = () => {
                     value={newContact.name}
                     onChange={handleInputChange}
                     onKeyDown={handleKeyPress}
-                    className="w-full mb-2 px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                    className="w-full mb-2 px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300 bg-transparent "
                 />
                 <input
                     type="tel" // Use "tel" for telephone numbers
@@ -88,21 +95,21 @@ const ContactCard = () => {
                     value={newContact.phone}
                     onChange={handleInputChange}
                     onKeyDown={handleKeyPress}
-                    className="w-full mb-2 px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                    className="w-full mb-2 px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300 bg-transparent "
                 />
 
                 <button
                     onClick={handleAddContact}
-                    className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mt-2"
+                    className="w-full bg-blue-500 hover:bg-blue-700  font-bold py-2 px-4 rounded-md mt-2"
                 >
                     {editIndex !== -1 ? 'Save Changes' : 'Add Contact'}
                 </button>
                 <div className="mt-4 border-gray-300 box-border">
                     {contacts.map((contact, index) => (
-                        <div key={index} className="border border-gray-300 rounded-md p-2 mb-2 flex items-center justify-between">
+                        <div key={index} className="border border-white-300 rounded-md p-2 mb-2 flex items-center justify-between">
                             <div>
                                 <p className="font-semibold">Name: {contact.name}</p>
-                                <p className="text-slate-700">Phone: {contact.phone}</p>
+                                <p className="">Phone: {contact.phone}</p>
                             </div>
                             <div className="flex">
                                 <button
@@ -123,6 +130,7 @@ const ContactCard = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 
