@@ -14,7 +14,7 @@ const ToggleButton = ({ setTheme }) => {
     'rounded-full',
     'p-1',
     'transition-colors',
-    'ml-12',
+    'ml-8',
     {
       'bg-gray-300 dark:bg-gray-700': !isDarkMode,
       'bg-gray-700 dark:bg-gray-300': isDarkMode,
